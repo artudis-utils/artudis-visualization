@@ -41,7 +41,7 @@ def create_tree(filename):
                 graph.add_edge(json_org['__id__'], relation['organisation'].split(":")[1], label=relation['role'])
     
     print(graph.string()) # print to screen
-    graph.write('orgs.dot') # write to simple.dot
+    graph.write('orgs.dot') # write to orgs.dot
     graph.draw('orgs.png', prog='dot') # draw png
 
 if __name__ == '__main__':
