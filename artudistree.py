@@ -74,9 +74,10 @@ def create_tree(orgs, people, output, rankdir, dpi,
     if people: 
         for line in people:
             json_person = json.loads(line)
-            graph.add_node("p"+json_person['__id__'], 
-                           label=json_person["family_name"]+", "+
-                                 json_person["given_name"], 
+	    first = json_person.get("family_name", "") or ""
+	    given = json_person.get("given_name", "") or ""
+	    graph.add_node("p"+json_person['__id__'], 
+                           label=first +", "+ given, 
                            fillcolor=personfillcolor)
         
         # Move the cursor back to the beginning of the file.
